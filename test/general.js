@@ -271,10 +271,10 @@ exports['PI3'] = function (test) {
   test.done();
 }
 
-/*
+
 exports['full'] = function (test) {
   // from http://www.phpbuilder.com/columns/iceomnia_20090116.php3
-  test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndent(true));
 
   test.ok(this.jw.startDocument('1.0'));
   test.ok(this.jw.startElement('rss'));
@@ -283,7 +283,7 @@ exports['full'] = function (test) {
   test.ok(this.jw.writeElement('title', 'Latest Products'));
   test.ok(this.jw.writeElement('description', 'This is the latest products from our website.'));
   test.ok(this.jw.writeElement('link', 'http://www.domain.com/link.htm'));
-  test.ok(this.jw.writeElement('pubDate', date("D, d M Y H:i:s e")));
+  test.ok(this.jw.writeElement('pubDate', new Date().toISOString()));
   test.ok(this.jw.startElement('image'));
   test.ok(this.jw.writeElement('title', 'Latest Products'));
   test.ok(this.jw.writeElement('link', 'http://www.domain.com/link.htm'));
@@ -296,7 +296,7 @@ exports['full'] = function (test) {
   test.ok(this.jw.writeElement('link', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.writeElement('description', 'Description 8 Yeah!'));
   test.ok(this.jw.writeElement('guid', 'http://www.domain.com/link.htm?tiem=1234'));
-  test.ok(this.jw.writeElement('pubDate', date("D, d M Y H:i:s e")));
+  test.ok(this.jw.writeElement('pubDate', new Date().toISOString()));
   test.ok(this.jw.startElement('category'));
   test.ok(this.jw.writeAttribute('domain', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.text('May 2008'));
@@ -307,7 +307,7 @@ exports['full'] = function (test) {
   test.ok(this.jw.writeElement('link', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.writeElement('description', 'Description Yeah!'));
   test.ok(this.jw.writeElement('guid', 'http://www.domain.com/link.htm?tiem=1234'));
-  test.ok(this.jw.writeElement('pubDate', date("D, d M Y H:i:s e")));
+  test.ok(this.jw.writeElement('pubDate', new Date().toISOString()));
   test.ok(this.jw.startElement('category'));
   test.ok(this.jw.writeAttribute('domain', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.text('May 2008'));
@@ -318,7 +318,7 @@ exports['full'] = function (test) {
   test.ok(this.jw.writeElement('link', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.writeElement('description', 'Description 8 Yeah!'));
   test.ok(this.jw.writeElement('guid', 'http://www.domain.com/link.htm?tiem=1234'));
-  test.ok(this.jw.writeElement('pubDate', date("D, d M Y H:i:s e")));
+  test.ok(this.jw.writeElement('pubDate', new Date().toISOString()));
   test.ok(this.jw.startElement('category'));
   test.ok(this.jw.writeAttribute('domain', 'http://www.domain.com/link.htm'));
   test.ok(this.jw.text('May 2008'));
@@ -328,8 +328,9 @@ exports['full'] = function (test) {
   test.ok(this.jw.endElement()); // rss
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
+  test.done();
 }
-
+/*
 exports['fullbis'] = function (test) {
   test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'utf-8', true));

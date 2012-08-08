@@ -11,15 +11,21 @@ exports['construct'] = function (test) {
   test.ok(this.jw instanceof JSONWriter);
   test.done();
 }
+
+/*
+{ 
+  version: '1.0',
+  encoding: 'UTF-8'
+}
+*/
 exports['Document'] = function (test) {
-  var self = this;
 
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.endDocument());
-  
+
   // string should be JSON formated
   try {
-    var r = JSON.parse(self.jw.toString());
+    var r = JSON.parse(this.jw.toString());
     test.equal(r['version'], '1.0');
     test.equal(r['encoding'], 'UTF-8');
 

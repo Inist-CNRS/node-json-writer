@@ -219,18 +219,20 @@ exports['CData'] = function (test) {
   test.done();
 }
 
-/*
+
 exports['PI'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.startPI('php'));
-  test.ok(this.jw.text(__METHOD__));
+  test.ok(this.jw.text('__METHOD__'));
   test.ok(this.jw.endPI());
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
-  test.equal(r['Root']['<?php']['$t'], __METHOD__);
+  test.equal(r['Root']['<?php']['$t'], '__METHOD__');
+  test.done();
 }
+/*
 exports['PI2'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));

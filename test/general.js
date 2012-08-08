@@ -44,8 +44,23 @@ exports['Element1'] = function (test) {
   test.ok(r['Root']);
   test.done();
 }
-
 exports['Element2'] = function (test) {
+  //test.ok(this.jw.setIndent(true));
+  test.ok(this.jw.startDocument('1.0', 'UTF-8'));
+  test.ok(this.jw.startElement('Root'));
+  test.ok(this.jw.startElement('Item'));
+  test.ok(this.jw.text('#1'));
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endDocument());
+  var r = JSON.parse(this.jw.toString())
+  test.ok(r['Root']);
+  test.equal(r['Root']['Item']['$t'], '#1');
+  test.done();
+}
+
+/*
+exports['Element3'] = function (test) {
   //test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));

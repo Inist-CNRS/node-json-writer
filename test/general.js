@@ -103,7 +103,7 @@ exports['Element4'] = function (test) {
   test.done();
 }
 
-exports['ElementNS'] = function (test) {
+exports['ElementNS1'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElementNS('ex', 'Root', 'http://www.example.com'));
   test.ok(this.jw.text('<{.\ô/.}>'));
@@ -111,6 +111,18 @@ exports['ElementNS'] = function (test) {
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
   test.ok(r['ex$Root']);
+  test.done();
+}
+
+exports['ElementNS2'] = function (test) {
+  test.ok(this.jw.startDocument('1.0', 'UTF-8'));
+  test.ok(this.jw.startElementNS('ex', 'Root', 'http://www.example.com'));
+  test.ok(this.jw.text('<{.\ô/.}>'));
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endDocument());
+  var r = JSON.parse(this.jw.toString())
+  test.ok(r['xmlns$ex']);
+  test.equal(r['xmlns$ex'], 'http://www.example.com');
   test.done();
 }
 /*

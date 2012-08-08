@@ -163,7 +163,7 @@ exports['Comment3'] = function (test) {
 }
 
 
-exports['Attribute'] = function (test) {
+exports['Attribute1'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.startAttribute('attr'));
@@ -175,6 +175,22 @@ exports['Attribute'] = function (test) {
   test.equal(r['Root']['attr'], '__METHOD__');
   test.done();
 }
+exports['Attribute2'] = function (test) {
+  test.ok(this.jw.startDocument('1.0', 'UTF-8'));
+    test.ok(this.jw.startElement('Root'));
+      test.ok(this.jw.startElement('Item'));
+      test.ok(this.jw.text('#1'));
+        test.ok(this.jw.startAttribute('attr'));
+          test.ok(this.jw.text('__METHOD__'));
+        test.ok(this.jw.endAttribute());
+      test.ok(this.jw.endElement());
+    test.ok(this.jw.endElement());
+  test.ok(this.jw.endDocument());
+  var r = JSON.parse(this.jw.toString());
+  test.equal(r['Root']['Item']['attr'], '__METHOD__');
+  test.done();
+}
+
 /*
 exports['AttributeNS'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));

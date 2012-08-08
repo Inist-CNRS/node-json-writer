@@ -44,9 +44,9 @@ exports['Element1'] = function (test) {
   test.ok(r['Root']);
   test.done();
 }
-/*
+
 exports['Element2'] = function (test) {
-  test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.startElement('Item'));
@@ -58,10 +58,13 @@ exports['Element2'] = function (test) {
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
-  test.ok(isset(r['Root']));
+  console.log(r)
+  test.ok(r['Root']);
   test.equal(r['Root']['Item'][0]['$t'], '#1');
   test.equal(r['Root']['Item'][1]['$t'], '#2');
 }
+
+/*
 exports['Element3'] = function (test) {
   test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));

@@ -205,18 +205,21 @@ exports['AttributeNS'] = function (test) {
   test.equal(r['xmlns$ex'], 'http://www.example.com');
   test.done();
 }
-/*
+
 exports['CData'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.startCData());
-  test.ok(this.jw.text(__METHOD__));
+  test.ok(this.jw.text('__METHOD__'));
   test.ok(this.jw.endCData());
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
-  test.equal(r['Root']['$t'], __METHOD__);
+  test.equal(r['Root']['$t'], '__METHOD__');
+  test.done();
 }
+
+/*
 exports['PI'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));

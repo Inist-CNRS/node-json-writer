@@ -135,6 +135,33 @@ exports['Comment1'] = function (test) {
   test.ok(this.jw.toString().indexOf('this a comment !') == -1);
   test.done();
 }
+
+exports['Comment2'] = function (test) {
+  test.ok(this.jw.startDocument('1.0', 'UTF-8'));
+  test.ok(this.jw.startElement('Root'));
+  test.ok(this.jw.startComment());
+  test.ok(this.jw.text('this a comment !'));
+  test.ok(this.jw.endComment());
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endDocument());
+  test.ok(this.jw.toString().indexOf('this a comment !') == -1);  
+  test.done();
+}
+exports['Comment3'] = function (test) {
+  test.ok(this.jw.startDocument('1.0', 'UTF-8'));
+  test.ok(this.jw.startElement('Root'));
+  test.ok(this.jw.startComment());
+  test.ok(this.jw.text('this a comment !'));
+  test.ok(this.jw.startElement('item'));
+  test.ok(this.jw.text('Element in a comment !'));
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endComment());
+  test.ok(this.jw.endElement());
+  test.ok(this.jw.endDocument());
+  test.ok(this.jw.toString().indexOf('this a comment !') == -1); 
+  test.done();
+}
+
 /*
 exports['Attribute'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));

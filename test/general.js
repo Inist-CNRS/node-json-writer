@@ -191,18 +191,21 @@ exports['Attribute2'] = function (test) {
   test.done();
 }
 
-/*
+
 exports['AttributeNS'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.startAttributeNS('ex', 'attr', 'http://www.example.com'));
-  test.ok(this.jw.text(__METHOD__));
+  test.ok(this.jw.text('__METHOD__'));
   test.ok(this.jw.endAttribute());
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
-  test.equal(r['Root']['ex$attr'], __METHOD__);
+  test.equal(r['Root']['ex$attr'], '__METHOD__');
+  test.equal(r['xmlns$ex'], 'http://www.example.com');
+  test.done();
 }
+/*
 exports['CData'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));

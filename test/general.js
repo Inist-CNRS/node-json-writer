@@ -126,7 +126,7 @@ exports['ElementNS2'] = function (test) {
   test.done();
 }
 
-exports['Comment'] = function (test) {
+exports['Comment1'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startComment());
   test.ok(this.jw.text('this a comment !'));

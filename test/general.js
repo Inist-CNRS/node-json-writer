@@ -30,19 +30,21 @@ exports['Document'] = function (test) {
     test.equal(r['encoding'], 'UTF-8');
 
   } catch(err) {
-    test.equal(err, null, 'jsonwriter toString should return a json string');
+    test.equal(err, null, 'JSONWriter.toString should return a json string');
   }
   test.done();
 }
-/*
+
 exports['Element1'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
-  var r = JSON.parse(this.jw.toString())
-  test.ok(isset(r['Root']));
+  var r = JSON.parse(this.jw.toString());
+  test.ok(r['Root']);
+  test.done();
 }
+/*
 exports['Element2'] = function (test) {
   test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));

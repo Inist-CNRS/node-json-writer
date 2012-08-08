@@ -125,16 +125,17 @@ exports['ElementNS2'] = function (test) {
   test.equal(r['xmlns$ex'], 'http://www.example.com');
   test.done();
 }
-/*
+
 exports['Comment'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startComment());
   test.ok(this.jw.text('this a comment !'));
   test.ok(this.jw.endComment());
   test.ok(this.jw.endDocument());
-  var r = JSON.parse(this.jw.toString())
-  $this->okNotContains('this a comment', serialize(r));
+  test.ok(this.jw.toString().indexOf('this a comment !') == -1);
+  test.done();
 }
+/*
 exports['Attribute'] = function (test) {
   test.ok(this.jw.startDocument('1.0', 'UTF-8'));
   test.ok(this.jw.startElement('Root'));

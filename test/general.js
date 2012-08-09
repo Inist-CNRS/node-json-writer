@@ -327,16 +327,23 @@ exports['full'] = function (test) {
   test.ok(this.jw.endElement()); // channel
   test.ok(this.jw.endElement()); // rss
   test.ok(this.jw.endDocument());
-  var r = JSON.parse(this.jw.toString())
+
+  // string should be JSON formated
+  try {
+    var r = JSON.parse(this.jw.toString());
+  } catch(err) {
+    test.equal(err, null, 'JSONWriter.toString should return a json string');
+  }  
+
   test.done();
 }
-/*
+
 exports['fullbis'] = function (test) {
-  test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'utf-8', true));
   test.ok(this.jw.writePI('xml-stylesheet', 'type="text/xsl" media="screen" href="test.xsl"'));
-  for($i=1,$x=''; $i < 512; $i++) $x .= ' ';
-  test.ok(this.jw.writeComment($x));
+  for(var i=1,  x=''; i < 512; i++) x += ' ';
+  test.ok(this.jw.writeComment(x));
   test.ok(this.jw.startElementNS('rdf', 'RDF', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'));
   test.ok(this.jw.writeAttributeNS('xmlns', 'skos', null, 'http://www.w3.org/2004/02/skos/core#'));
   test.ok(this.jw.startElement('skos:Concept'));
@@ -365,8 +372,17 @@ exports['fullbis'] = function (test) {
   test.ok(this.jw.flush());
   test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
-  var r = JSON.parse(this.jw.toString())
+
+  // string should be JSON formated
+  try {
+    var r = JSON.parse(this.jw.toString());
+  } catch(err) {
+    test.equal(err, null, 'JSONWriter.toString should return a json string');
+  }  
+
+  test.done();
 }
+/*
 exports['RAW'] = function (test) {
   test.ok(this.jw.setIndent(true));
   test.ok(this.jw.setIndentString('.'));

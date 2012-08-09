@@ -383,11 +383,9 @@ exports['fullbis'] = function (test) {
   test.done();
 }
 
-/*
 exports['Indent'] = function (test) {
-  //test.ok(this.jw.setIndent(true));
-  //test.ok(this.jw.setIndentString('.'));
-  //test.ok(this.jw.openMemory());
+  test.ok(this.jw.setIndent(true));
+  test.ok(this.jw.setIndentString('.'));
   test.ok(this.jw.startDocument());
     test.ok(this.jw.startElement('x'));
       test.ok(this.jw.startAttribute('x'));
@@ -403,7 +401,6 @@ exports['Indent'] = function (test) {
   test.equal("{\n.\"version\": \"1.0\",\n.\"encoding\": \"utf-8\",\n.\"x\": {\n..\"x\": \"x\",\n..\"y\": {\n...\"\$t\": \"x\"\n..}\n.}\n}", r);
   test.done();
 }
-*/
 
 
 exports['nodocument'] = function (test) {

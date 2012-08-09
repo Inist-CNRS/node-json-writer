@@ -416,9 +416,9 @@ exports['nodocument'] = function (test) {
   test.done();
 }
 
-/*
+
 exports['notns'] = function (test) {
-  test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'utf-8', true));
   test.ok(this.jw.startElement('rdf:RDF'));
   test.ok(this.jw.writeAttribute('xmlns:skos', 'http://skos'));
@@ -452,8 +452,9 @@ exports['notns'] = function (test) {
   test.equal(r['rdf:RDF']['skos:Concept'][0]['rdf:about'], 1);
   test.equal(r['rdf:RDF']['skos:Concept'][1]['rdf:about'], 2);
   test.done();
-
 }
+
+/*
 
 exports['nsnull'] = function (test) {
   test.ok(this.jw.setIndent(true));

@@ -454,10 +454,8 @@ exports['notns'] = function (test) {
   test.done();
 }
 
-/*
-
 exports['nsnull'] = function (test) {
-  test.ok(this.jw.setIndent(true));
+//  test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'utf-8', true));
   test.ok(this.jw.startElementNS('rdf', 'RDF', 'http://rdf'));
   test.ok(this.jw.writeAttributeNS('xmlns', 'skos', null, 'http://skos'));
@@ -489,13 +487,6 @@ exports['nsnull'] = function (test) {
   test.ok(this.jw.endDocument());
   var r = JSON.parse(this.jw.toString())
   test.equal(r['rdf$RDF']['skos$Concept'][0]['rdf$about'], 1);
-  test.equal(r['rdfrDF']['skos$Concept'][1]['rdf$about'], 2);
+  test.equal(r['rdf$RDF']['skos$Concept'][1]['rdf$about'], 2);
   test.done();
 }
-*/
-/* */
-
-
-
-
-

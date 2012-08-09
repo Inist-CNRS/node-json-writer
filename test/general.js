@@ -382,35 +382,41 @@ exports['fullbis'] = function (test) {
 
   test.done();
 }
+
 /*
-exports['RAW'] = function (test) {
-  test.ok(this.jw.setIndent(true));
-  test.ok(this.jw.setIndentString('.'));
-  test.ok(this.jw.openMemory());
+exports['Indent'] = function (test) {
+  //test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndentString('.'));
+  //test.ok(this.jw.openMemory());
   test.ok(this.jw.startDocument());
-  test.ok(this.jw.startElement('x'));
-  test.ok(this.jw.startAttribute('x'));
-  test.ok(this.jw.text('x'));
-  test.ok(this.jw.endAttribute());
-  test.ok(this.jw.startElement('y')); // Doesn't support tag and attr with the same name
-  test.ok(this.jw.text('x'));
-  test.ok(this.jw.endElement());
-  test.ok(this.jw.endElement());
+    test.ok(this.jw.startElement('x'));
+      test.ok(this.jw.startAttribute('x'));
+        test.ok(this.jw.text('x'));
+      test.ok(this.jw.endAttribute());
+      test.ok(this.jw.startElement('y')); // Doesn't support tag and attr with the same name
+        test.ok(this.jw.text('x'));
+      test.ok(this.jw.endElement());
+    test.ok(this.jw.endElement());
   test.ok(this.jw.endDocument());
   test.ok(this.jw.flush() !== false);
-  var r = this.jw.toString()
+  var r = this.jw.toString();
   test.equal("{\n.\"version\": \"1.0\",\n.\"encoding\": \"utf-8\",\n.\"x\": {\n..\"x\": \"x\",\n..\"y\": {\n...\"\$t\": \"x\"\n..}\n.}\n}", r);
+  test.done();
 }
+*/
+
 
 exports['nodocument'] = function (test) {
-  test.ok(this.jw.setIndent(true));
+  //test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startElement('Root'));
   test.ok(this.jw.text('toto'));
   test.ok(this.jw.endElement());
   var r = JSON.parse(this.jw.toString())
   test.equal(r['Root']['$t'], 'toto');
+  test.done();
 }
 
+/*
 exports['notns'] = function (test) {
   test.ok(this.jw.setIndent(true));
   test.ok(this.jw.startDocument('1.0', 'utf-8', true));

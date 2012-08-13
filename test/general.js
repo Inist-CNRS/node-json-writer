@@ -515,3 +515,34 @@ exports['Callback'] = function (test) {
 
 }
 
+exports['Tolerant'] = function (test) {
+//  test.ok(this.jw.setIndent(true));
+
+
+  var fs = require('fs');
+  var ws = fs.createWriteStream('/tmp/foo.json');
+  ws.on('close', function() {
+    // string should be JSON formated
+    try {
+      var r = JSON.parse(fs.readFileSync('/tmp/foo.json', 'UTF-8'));
+      test.ok(r['root']);
+    } catch(err) {
+      test.equal(err, null, 'JSONWriter should send JSON to the callback');
+    }
+    fs.unlinkSync('/tmp/foo.json'); // cleanup
+    test.done();
+  });
+  var jw = new JSONWriter(false, function(string, encoding) { 
+    ws.write(string, encoding);
+  });
+  jw.setIndent(true).startDocument('1.0', 'UTF-8').startElement(function() {
+    return 'root';
+  }).text(function() {
+    return 'Some content';
+  }).endElement();
+  ws.end();
+
+}
+
+
+

@@ -194,7 +194,7 @@ Do nothing (just here for compatibility with XMLWriter)
 
 # Also
 
-* https://github.com/lindory-project/node-xml-writer
+* https://github.com/touv/node-xml-writer
 
 # License
 

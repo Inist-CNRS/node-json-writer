@@ -1,16 +1,25 @@
 {
   "name"         : "json-writer",
-  "version"      : "1.0.2",
+  "version"      : "1.0.3",
   "author"       : "Nicolas Thouvenin <nthouvenin@gmail.com>",
-  "contributors" : [ ],
+  "contributors" : [ 
+     {
+      "name": "Agostinho Quintela",
+      "email": "ago.quintela@gmail.com"
+    },
+    {
+      "name": "Stéphane Gully",
+      "email": "stephane.gully@gmail.com"
+    }
+  ],
   "description"  : "Build JSON like XML",
-  "tags"         : [ "xml", "json", "generator" ],
-  "homepage"     : "http://github.com/lindory-project/node-json-writer",
+  "keywords"         : [ "xml", "json", "generator" ],
+  "homepage"     : "http://github.com/touv/node-json-writer",
   "scripts"      : { "test": "nodeunit test/" },
   "main"         : "./index.js",
   "repository"   : {
     "type": "git",
-    "url": "https://github.com/lindory-project/node-json-writer.git"
+    "url": "https://github.com/touv/node-json-writer.git"
   },
   "dependencies" : { },
   "devDependencies": {

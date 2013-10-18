@@ -199,3 +199,7 @@ Do nothing (just here for compatibility with XMLWriter)
 # License
 
 [MIT/X11](./LICENSE)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/touv/node-json-writer/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
